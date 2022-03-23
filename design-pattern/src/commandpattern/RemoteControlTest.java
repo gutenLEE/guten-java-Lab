@@ -1,5 +1,10 @@
 package commandpattern;
 
+import commandpattern.command.GarageDoorOpenCommand;
+import commandpattern.command.LightOnCommand;
+import commandpattern.receiver.GarageDoor;
+import commandpattern.receiver.Light;
+
 public class RemoteControlTest {
     public static void main(String[] args) {
         SimpleRemoteControl remote = new SimpleRemoteControl();

@@ -1,4 +1,4 @@
-package commandpattern;
+package commandpattern.receiver;
 
 public class GarageDoor {
     public void up() {
