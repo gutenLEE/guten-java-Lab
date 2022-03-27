@@ -6,10 +6,6 @@ public class MallardDuck extends Duck {
         this.flyBehavior = new FlyWithWings();
     }
 
-    public void setFlyBehavior(FlyBehavior flyBehavior){
-        this.flyBehavior = flyBehavior;
-    }
-
     @Override
     void quack() {
 
