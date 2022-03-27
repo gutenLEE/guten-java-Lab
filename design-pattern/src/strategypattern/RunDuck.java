@@ -1,4 +1,4 @@
-package intro;
+package strategypattern;
 
 public class RunDuck {
     public static void main(String[] args) {

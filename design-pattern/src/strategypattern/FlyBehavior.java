@@ -1,4 +1,4 @@
-package intro;
+package strategypattern;
 
 /**
  * fly 행동이 더이상 Duck class 안에 숨겨져 있지 않다.

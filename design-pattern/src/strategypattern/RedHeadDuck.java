@@ -1,4 +1,4 @@
-package intro;
+package strategypattern;
 
 public class RedHeadDuck extends Duck {
 
