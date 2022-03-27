@@ -9,23 +9,22 @@ public class MacroCommand implements Command {
     Command[] onCommands;
     Command[] offCommands;
     NoCommand noCommand;
-    
-    public MacroCommand() {
-        onCommands = new Command[3];
-        onCommands[0] = new FanOnCommand(new Fan());
-        onCommands[1] = new CeilingFanHighCommand(new CeilingFan("room1"));
-        onCommands[2] = new StoveOnCommand(new Stove());
 
-        offCommands = new Command[3];
+    public MacroCommand(Command[] onCommands) {
+        this.onCommands = onCommands;
     }
 
     @Override
     public void execute() {
-
+        for (int i = 0; i < onCommands.length; i++) {
+            onCommands[i].execute();
+        }
     }
 
     @Override
     public void undo() {
-
+        for (int i = 0; i < onCommands.length; i++) {
+            onCommands[i].execute();
+        }
     }
 }

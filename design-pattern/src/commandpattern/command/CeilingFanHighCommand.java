@@ -13,6 +13,7 @@ public class CeilingFanHighCommand implements Command {
 
     @Override
     public void execute() {
+        System.out.println("fan speed is set to high");
         this.prevSpeed = ceilingFan.getSpeed();
         ceilingFan.high();
     }
