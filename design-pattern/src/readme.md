@@ -3,3 +3,4 @@
 
 ## 일지
 - Command pattern
+- Strategy pattern
