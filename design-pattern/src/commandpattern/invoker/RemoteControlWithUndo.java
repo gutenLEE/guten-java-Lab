@@ -3,12 +3,13 @@ package commandpattern.invoker;
 import commandpattern.command.Command;
 import commandpattern.command.NoCommand;
 
-public class RemoteControl {
+public class RemoteControlWithUndo {
     Command[] onCommands;
     Command[] offCommands;
+    Command commandUndo;
 
     // 초기화
-    public RemoteControl() {
+    public RemoteControlWithUndo() {
         this.onCommands = new Command[7];
         this.offCommands = new Command[7];
 
@@ -17,6 +18,7 @@ public class RemoteControl {
             onCommands[i] = noCommand;
             offCommands[i] = noCommand;
         }
+        commandUndo = noCommand;
     }
 
     /**
@@ -33,14 +35,16 @@ public class RemoteControl {
 
     public void onButtonWasPushed(int slot) {
         onCommands[slot].execute();
+        commandUndo = onCommands[slot];
     }
 
     public void offButtonWasPushed(int slot) {
-        offCommands[slot].undo();
+        offCommands[slot].execute();
+        commandUndo = offCommands[slot];
     }
 
     public void undoButtonWasPushed() {
-
+        commandUndo.undo();
     }
 
     public String toString() {
@@ -50,6 +54,8 @@ public class RemoteControl {
             sb.append("[slot " + i + "] " + onCommands[i].getClass().getName() + "     "
                     + offCommands[i].getClass().getName() + "\n");
         }
+        sb.append("\n");
+        sb.append(commandUndo.getClass().getName());
         return sb.toString();
     }
 }
