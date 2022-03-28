@@ -4,3 +4,4 @@
 ## 일지
 - Command pattern
 - Strategy pattern
+- Observer pattern
