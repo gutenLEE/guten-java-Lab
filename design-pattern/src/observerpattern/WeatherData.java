@@ -1,5 +1,6 @@
 package observerpattern;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,14 +15,18 @@ public class WeatherData implements Subject {
     private float humidity;
     private float pressure;
 
+    public WeatherData( ) {
+        this.observers = new ArrayList<>();
+    }
+
     @Override
     public void registerObserver(Observer ob) {
-
+        observers.add(ob);
     }
 
     @Override
     public void removeObserver(Observer ob) {
-
+        observers.remove(ob);
     }
 
     @Override
@@ -32,25 +37,18 @@ public class WeatherData implements Subject {
         }
     }
 
+    // 주제의 상태가 변경되었을 때만 이 메서드가 호출되면,
+    // 옵저버들 객체의 필드 상태값이 변경되었다는것인데,
+    // 옵저버들은 자기들의 상태가 바뀐걸 어찌 알지?
+    // 스스로 체크하나?
     public void measurementsChanged() {
-        // 최신 데이터 수집
-        float temp = getTemperature();
-        float humidity = getHumidity();
-        float pressure = getPressure();
-
-        // 각 디스플레이 갱신.
+        notifyObservers();
     }
 
-
-    private float getPressure() {
-        return 0;
-    }
-
-    private float getHumidity() {
-        return 0;
-    }
-
-    private float getTemperature() {
-        return 0;
+    public void setMeasurements(float temperature, float humidity, float pressure) {
+        this.temperature = temperature;
+        this.humidity = humidity;
+        this.pressure = pressure;
+        measurementsChanged();
     }
 }
