@@ -5,6 +5,12 @@ public class CurrentConditionsDisplay implements Observer, DisplayElement {
     private float temp;
     private float humidity;
     private float pressure;
+    private WeatherData weatherData;
+
+    public CurrentConditionsDisplay(WeatherData weatherData) {
+        this.weatherData = weatherData;
+        weatherData.registerObserver(this);
+    }
 
     @Override
     public void display() {
@@ -19,7 +25,12 @@ public class CurrentConditionsDisplay implements Observer, DisplayElement {
         this.temp = temp;
         this.humidity = humidity;
         this.pressure = pressure;
-        // 아....주제에서 옵저버의 업데이트 메서드를 호출하는 구나
         this.display();
+    }
+
+    @Override
+    public void update() {
+        this.temp = weatherData.getHumidity();
+        display();
     }
 }
