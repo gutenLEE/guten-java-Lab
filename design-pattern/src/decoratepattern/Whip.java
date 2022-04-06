@@ -8,7 +8,15 @@ public class Whip extends CondimentDecorator {
 
     @Override
     public double cost() {
-        return beverage.cost() + .33;
+        double cost = Double.NaN;
+        if (this.beverage.getSize() == Size.GRANDE) {
+            cost = .9;
+        } else if (this.beverage.getSize() == Size.TALL) {
+            cost = .11;
+        } else {
+            cost = 3.0;
+        }
+        return beverage.cost() + cost;
     }
 
     @Override
