@@ -21,8 +21,4 @@ public class CheesePizza extends Pizza {
 
     }
 
-    @Override
-    public Pizza orderPizza(String type) {
-        return null;
-    }
 }
