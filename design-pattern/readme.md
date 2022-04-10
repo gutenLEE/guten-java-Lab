@@ -5,3 +5,4 @@
 - Command pattern
 - Strategy pattern
 - Observer pattern
+- factory method pattern
