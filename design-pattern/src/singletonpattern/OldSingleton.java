@@ -8,7 +8,10 @@ public class OldSingleton {
 
     private OldSingleton() {}
 
-    public static OldSingleton getInstance() {
-        return Objects.requireNonNullElseGet(uniqueInstance, OldSingleton::new);
+    public static synchronized OldSingleton getInstance() {
+        if (uniqueInstance == null) {
+            uniqueInstance = new OldSingleton();
+        }
+        return uniqueInstance;
     }
 }
