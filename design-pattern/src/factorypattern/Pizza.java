@@ -1,13 +1,23 @@
 package factorypattern;
 
+import factorypattern.ingredient.*;
+
 import java.awt.datatransfer.MimeTypeParseException;
 import java.lang.reflect.GenericArrayType;
 
 public abstract class Pizza {
 
-    void prepare() {
+    String name;
 
-    }
+    Dough dough;
+    Sauce sauce;
+    Veggies[] veggies;
+    Cheese cheese;
+    Pepperoni pepperoni;
+    Clams clams;
+
+
+    abstract void prepare();
 
     void bake() {
 
