@@ -1,5 +1,9 @@
 package observerpattern;
 
+import javax.print.DocFlavor;
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class CurrentConditionsDisplay implements Observer, DisplayElement {
 
     private float temp;

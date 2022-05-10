@@ -11,3 +11,4 @@ public class MallardDuck implements Duck {
         System.out.println("i'm flying!!!");
     }
 }
+

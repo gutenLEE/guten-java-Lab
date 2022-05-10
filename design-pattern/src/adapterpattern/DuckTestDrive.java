@@ -17,10 +17,21 @@ public class DuckTestDrive {
         System.out.println("칠면조 어댑터가가 말하길...");
         testDuck(turkeyAdapter);
 
+        System.out.println("====================");
+        DuckAdapter duckAdapter = new DuckAdapter(duck);
+        testTurkey(duckAdapter);
+
     }
 
     static void testDuck(Duck duck) {
         duck.quack();
         duck.fly();
     }
+
+    static void testTurkey(Turkey turkey) {
+        turkey.gobble();
+        turkey.fly();
+    }
+
+
 }
