@@ -33,7 +33,7 @@ public class PasswordStrengthMeterTest {
     @DisplayName("8글자 미만이고 나머지 조건은 충족하는 경우")
     void meetsOtherCritera_except_for_Length_Then_Normal () throws Exception {
 
-        assertStrength("asdf12", PasswordStrength.NORMAL);
+        assertStrength("asdE12", PasswordStrength.NORMAL);
         assertStrength("AAA123", PasswordStrength.NORMAL);
     }
 
@@ -69,6 +69,17 @@ public class PasswordStrengthMeterTest {
          assertStrength("asdfasdfasdfasdf", PasswordStrength.WEAK);
     }
 
+    @Test
+    @DisplayName("숫자 포함 조건만 충족하는 경우")
+    void meetOnlyNumCriteria_Then_Weak() throws Exception {
+         assertStrength("12234", PasswordStrength.WEAK);
+    }
+
+    @Test
+    @DisplayName("대문자 포함 조건만 충족하는 경우")
+    void meetOnlyUppercaseCriteria_Then_Weak() throws Exception {
+        assertStrength("AAA", PasswordStrength.WEAK);
+    }
 
 
 
