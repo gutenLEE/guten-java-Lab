@@ -10,23 +10,27 @@ public class PasswordStrengthMeter {
         if ( s == null || s.isEmpty() ) return PasswordStrength.INVALID;
 
         boolean lengthEnough = s.length() >= 8;
+        boolean containsNum = meetsContainingNumberCriteria(s);
+        boolean containsUpp = meetsContainingUppercaseCritera(s);
+
+        if (lengthEnough && !containsNum && !containsUpp)
+            return PasswordStrength.WEAK;
 
         if (!lengthEnough) {
             return PasswordStrength.NORMAL;
         }
-
-        boolean containsNum = false;
-        containsNum = meetsContainingNumberCriteria(s);
         if ( !containsNum ) return PasswordStrength.NORMAL;
-
-        boolean containsUpp = false;
-        for (char ch : s.toCharArray()) {
-            if (Character.isUpperCase(ch))
-                containsUpp = true;
-        }
         if ( !containsUpp ) return PasswordStrength.NORMAL;
 
         return PasswordStrength.STRONG;
+    }
+
+    private boolean meetsContainingUppercaseCritera(String s) {
+        for (char ch : s.toCharArray()) {
+            if (Character.isUpperCase(ch))
+                return true;
+        }
+        return false;
     }
 
     private boolean meetsContainingNumberCriteria(String s) {
