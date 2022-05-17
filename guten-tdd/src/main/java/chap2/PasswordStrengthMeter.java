@@ -10,16 +10,20 @@ public class PasswordStrengthMeter {
 
         if ( s == null || s.isEmpty() ) return PasswordStrength.INVALID;
 
+        int meetsCount = getMetCriteriaCounts(s);
+        // 아래 코드는 1개의 조건을 충족하면 강도가 약함이라는 규칙을 더 잘 표현해줌.
+        if (meetsCount <= 1) return PasswordStrength.WEAK;
+        if (meetsCount == 2) return PasswordStrength.NORMAL;
+
+        return PasswordStrength.STRONG;
+    }
+
+    private int getMetCriteriaCounts(String s) {
         int meetsCount = 0;
         if (s.length() >= 8) meetsCount++;
         if (meetsContainingNumberCriteria(s)) meetsCount++;
         if (meetsContainingUppercaseCritera(s)) meetsCount++;
-
-        // 아래 코드는 1개의 조건을 충족하면 강도가 약함이라는 규칙을 더 잘 표현해줌.
-        if (meetsCount == 1) return PasswordStrength.WEAK;
-        if (meetsCount == 2) return PasswordStrength.NORMAL;
-
-        return PasswordStrength.STRONG;
+        return meetsCount;
     }
 
 
