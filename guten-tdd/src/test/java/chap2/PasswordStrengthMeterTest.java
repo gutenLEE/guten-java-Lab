@@ -25,8 +25,8 @@ public class PasswordStrengthMeterTest {
     @DisplayName("모든 조건을 충족하는 경우")
     void meetsAllCriteria_Then_String() throws Exception {
 
-        assertStrength("asd231ㅈㄷ234ㄹㅈㄷㄹㅈㄷㄹ2", PasswordStrength.STRONG);
-        assertStrength("asdfㅈㄷㄹㅈㄷㄹㅈㄷㄹㅈㄷ234234ㄹ!wefwef", PasswordStrength.STRONG);
+        assertStrength("asE231ㅈㄷ234ㄹㅈㄷㄹㅈㄷㄹ2", PasswordStrength.STRONG);
+        assertStrength("aEdfㅈㄷㄹㅈㄷㄹㅈㄷㄹㅈㄷ234234ㄹ!wefwef", PasswordStrength.STRONG);
     }
 
     @Test
@@ -58,7 +58,18 @@ public class PasswordStrengthMeterTest {
     }
 
     @Test
+    @DisplayName("대문자를 포함하지 않고 나머지 조건을 충족하는 경우")
     void meetsOtherCriteria_except_for_Uppercase_Then_Normal () throws Exception {
         assertStrength("asdfcvb1234!", PasswordStrength.NORMAL);
     }
+
+    @Test
+    @DisplayName("길이가 8글자 이상인 조건만 충족하는 경우")
+    void meetsOnlyLengthCriteraia_Then_Weak() throws Exception {
+         assertStrength("asdfasdfasdfasdf", PasswordStrength.WEAK);
+    }
+
+
+
+
 }

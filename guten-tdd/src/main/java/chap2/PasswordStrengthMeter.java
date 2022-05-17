@@ -8,12 +8,23 @@ public class PasswordStrengthMeter {
     public PasswordStrength meter(String s) {
 
         if ( s == null || s.isEmpty() ) return PasswordStrength.INVALID;
-        if ( s.length() < 8 ) {
+
+        boolean lengthEnough = s.length() >= 8;
+
+        if (!lengthEnough) {
             return PasswordStrength.NORMAL;
         }
+
         boolean containsNum = false;
         containsNum = meetsContainingNumberCriteria(s);
         if ( !containsNum ) return PasswordStrength.NORMAL;
+
+        boolean containsUpp = false;
+        for (char ch : s.toCharArray()) {
+            if (Character.isUpperCase(ch))
+                containsUpp = true;
+        }
+        if ( !containsUpp ) return PasswordStrength.NORMAL;
 
         return PasswordStrength.STRONG;
     }
