@@ -9,6 +9,6 @@ import java.time.LocalDate;
 public class ExpiryDateCalculator {
 
     public LocalDate calculateExpiryDate(LocalDate bilingDate, int payAmount) {
-        return LocalDate.of(2019, 4, 1);
+        return bilingDate.plusMonths(1);
     }
 }
