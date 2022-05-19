@@ -1,5 +1,6 @@
 package chap3;
 
+import org.assertj.core.internal.bytebuddy.asm.Advice;
 import org.junit.Test;
 
 import java.time.LocalDate;
@@ -92,5 +93,20 @@ public class ExpiryDateCalculatorTest {
 
         assertExpiryDate(payData3, LocalDate.of(2019, 7, 31));
     }
+
+
+    // 다음 테스트 :: 쉬운 테스트
+    @Test
+    public void 이만원_이상_납부하면_비례해서_만료일_계산() throws Exception {
+
+        assertExpiryDate(
+                PayData.builder()
+                        .billingDate(LocalDate.of(2019, 3, 1))
+                        .payAmount(20_000)
+                        .build(),
+                LocalDate.of(2019, 5, 1)
+        );
+    }
+
 
 }
