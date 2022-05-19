@@ -39,7 +39,7 @@ public class ExpiryDateCalculatorTest {
 
     }
 
-
+    // 예외 상황 테스트
     @Test
     public void 납부일과_한달_뒤_일자가_같지_않음() throws Exception {
 
@@ -64,6 +64,20 @@ public class ExpiryDateCalculatorTest {
                 LocalDate.of(2020, 2, 29)
         );
     }
+
+    // 예외 상황 또 테스트
+    @Test
+    public void 첫_납부일과_만료일_일자가_다를때_만원_납부() throws Exception {
+
+        PayData payData = PayData.builder()
+                .firstBillingDate(LocalDate.of(2019, 1, 31))
+                .billingDate(LocalDate.of(2020, 2, 28))
+                .payAmount(10_000).build();
+
+        assertExpiryDate(payData, LocalDate.of(2020, 3, 31));
+    }
+
+
 
 
 

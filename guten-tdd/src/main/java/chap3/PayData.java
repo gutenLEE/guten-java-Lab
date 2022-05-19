@@ -8,6 +8,7 @@ import java.time.LocalDate;
  */
 public class PayData {
 
+    LocalDate firstBillingDate;
     LocalDate billingDate;
     int payAmount;
 
@@ -33,6 +34,10 @@ public class PayData {
 
     public static class Builder {
         PayData payData = new PayData();
+
+        public Builder firstBillingDate(LocalDate firstBillingDate) {
+            return this;
+        }
 
         public Builder billingDate(LocalDate billingDate) {
             payData.billingDate = billingDate;
