@@ -116,7 +116,6 @@ public class ExpiryDateCalculatorTest {
 
 
     // 예외 상황 테스트
-
     @Test
     public void 첫_납부일과_만료일_일자가_다를때_이만원_이상_납부() throws Exception {
 
@@ -136,8 +135,21 @@ public class ExpiryDateCalculatorTest {
                         .payAmount(30_000)
                         .build(),
                 LocalDate.of(2019, 7, 31));
-
     }
+
+
+    // 10개월 요금을 납부하면 1년 제공
+    @Test
+    public void 십만원을_납부하면_1년_제공() throws Exception {
+        assertExpiryDate(
+                PayData.builder()
+                        .billingDate(LocalDate.of(2019, 1, 28))
+                        .payAmount(100_000)
+                        .build(),
+                LocalDate.of(2020, 1, 28));
+    }
+
+
 
 
 
