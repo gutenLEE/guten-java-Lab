@@ -8,9 +8,9 @@ import java.time.LocalDate;
  */
 public class PayData {
 
-    LocalDate firstBillingDate;
-    LocalDate billingDate;
-    int payAmount;
+    private LocalDate firstBillingDate;
+    private LocalDate billingDate;
+    private int payAmount;
 
     public static Builder builder() {
         return new Builder();
@@ -19,9 +19,10 @@ public class PayData {
     public PayData() {
     }
 
-    public PayData(LocalDate billingDate, int payAmount) {
+    public PayData(LocalDate firstBillingDate, LocalDate billingDate, int payAmount) {
         this.billingDate = billingDate;
         this.payAmount = payAmount;
+        this.firstBillingDate = firstBillingDate;
     }
 
     public LocalDate getBillingDate() {
@@ -32,10 +33,15 @@ public class PayData {
         return payAmount;
     }
 
+    public LocalDate getFirstBillingDate() {
+        return firstBillingDate;
+    }
+
     public static class Builder {
         PayData payData = new PayData();
 
         public Builder firstBillingDate(LocalDate firstBillingDate) {
+            payData.firstBillingDate = firstBillingDate;
             return this;
         }
 
