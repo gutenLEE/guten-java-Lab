@@ -13,19 +13,32 @@ public class ExpiryDateCalculator {
 
         int addedMonth = payData.getPayAmount() / 10_000;
         if (payData.getFirstBillingDate() != null) {
-            LocalDate candidateExp = payData.getBillingDate().plusMonths(addedMonth);
-            // 첫 납부일과 납부일 일자가 다르면 첫 납부일의 일자를 만료일 일자로 사용
-            if (payData.getFirstBillingDate().getDayOfMonth() != candidateExp.getDayOfMonth()) {
-                if (YearMonth.from(candidateExp).lengthOfMonth()
-                        < payData.getFirstBillingDate().getDayOfMonth()) {
-                    return candidateExp.withDayOfMonth(
-                            YearMonth.from(candidateExp).lengthOfMonth());
-                }
-                return candidateExp.withDayOfMonth(
-                        payData.getFirstBillingDate().getDayOfMonth());
-            }
+            return expiryDateUsingFirstBillingDate(payData, addedMonth);
         }
         return payData.getBillingDate().plusMonths(addedMonth);
+    }
+
+    private LocalDate expiryDateUsingFirstBillingDate(PayData payData, int addedMonth) {
+        LocalDate candidateExp = payData.getBillingDate().plusMonths(addedMonth);
+        // 첫 납부일과 납부일 일자가 다르면 첫 납부일의 일자를 만료일 일자로 사용
+        if ( isNotSameDayOfMonth( candidateExp, payData.getFirstBillingDate()) ) {
+            final int dayLenOfCandiMon = lastDayOfMonth(candidateExp);
+            final int dayOfFirstBilling = payData.getFirstBillingDate().getDayOfMonth();
+            if ( dayLenOfCandiMon < dayOfFirstBilling ) {
+                return candidateExp.withDayOfMonth(dayLenOfCandiMon);
+            }
+            return candidateExp.withDayOfMonth(dayOfFirstBilling);
+        } else {
+            return candidateExp;
+        }
+    }
+
+    private boolean isNotSameDayOfMonth(LocalDate candidateExp, LocalDate firstBillingDate) {
+        return firstBillingDate.getDayOfMonth() != candidateExp.getDayOfMonth();
+    }
+
+    private int lastDayOfMonth(LocalDate candidateExp) {
+        return YearMonth.from(candidateExp).lengthOfMonth();
     }
 }
 
