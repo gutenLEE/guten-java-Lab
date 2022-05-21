@@ -147,6 +147,24 @@ public class ExpiryDateCalculatorTest {
                         .payAmount(100_000)
                         .build(),
                 LocalDate.of(2020, 1, 28));
+
+
+        // 윤달 마지막 날에 10만원을 납부하는 상황
+        assertExpiryDate(
+                PayData.builder()
+                        .billingDate(LocalDate.of(2020, 2, 29))
+                        .payAmount(100_000)
+                        .build(),
+                LocalDate.of(2021, 2, 28));
+
+
+        // 납부 금액이 10만원 이상
+        assertExpiryDate(
+                PayData.builder()
+                        .billingDate(LocalDate.of(2020, 2, 29))
+                        .payAmount(130_000)
+                        .build(),
+                LocalDate.of(2021, 5, 29));
     }
 
 
