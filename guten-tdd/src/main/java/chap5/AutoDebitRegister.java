@@ -1,6 +1,5 @@
 package chap5;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
@@ -16,7 +15,7 @@ public class AutoDebitRegister {
         this.repository = repository;
     }
 
-    public DebitRegister register(AutoDebitReq req) {
+    public RegisterResult register(AutoDebitReq req) {
         CardValidity validity = validator.validate(req.getCardNumber());
 
         if (validity != CardValidity.VALID) {

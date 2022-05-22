@@ -5,11 +5,15 @@ package chap5;
  * @since 2022/05/23
  */
 public class RegisterResult {
-    public static DebitRegister error(CardValidity validity) {
+    public static RegisterResult error(CardValidity validity) {
         return null;
     }
 
-    public static DebitRegister success() {
+    public static RegisterResult success() {
+        return null;
+    }
+
+    public CardValidity getValidity() {
         return null;
     }
 }
