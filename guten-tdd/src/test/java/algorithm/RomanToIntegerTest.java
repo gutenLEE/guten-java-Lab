@@ -39,7 +39,12 @@ public class RomanToIntegerTest {
                 return b - a;
         }
 
-        return map.get(roman);
+        String[] split = roman.split("");
+        int sum = 0;
+        for (String str : split) {
+            sum += map.get(str);
+        }
+        return sum;
     }
 
     private void assertRomanToInteger(String roman, int expected) {
@@ -53,10 +58,26 @@ public class RomanToIntegerTest {
     }
 
     @Test
-    void largest_to_smallest() throws Exception {
+    @DisplayName("로만 문자 길이가 2 이고, 첫번째 로만 문자의 값이 두번째보다 작을 경우")
+    void if_length_2_() throws Exception {
         assertRomanToInteger("IV", 4);
         assertRomanToInteger("IX", 9);
+
+        assertRomanToInteger("XL", 40);
+        assertRomanToInteger("XC", 90);
+
+        assertRomanToInteger("CD", 400);
+        assertRomanToInteger("CM", 900);
+
     }
+
+    @Test
+    void largest_to_smallest() throws Exception {
+         assertRomanToInteger("LVIII", 58);
+         assertRomanToInteger("MCMXCIV", 1994);
+    }
+
+
 
 
 
