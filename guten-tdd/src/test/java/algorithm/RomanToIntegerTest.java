@@ -31,18 +31,21 @@ public class RomanToIntegerTest {
 
     private Integer getInteger(String roman) {
 
-        if (roman.length() == 2) {
-            String[] split = roman.split("");
-            Integer a = map.get(split[0]);
-            Integer b = map.get(split[1]);
-            if (a < b)
-                return b - a;
-        }
-
         String[] split = roman.split("");
         int sum = 0;
-        for (String str : split) {
-            sum += map.get(str);
+        int passIndex = Integer.MIN_VALUE;
+        for (int i = 0; i < split.length; i++) {
+            if (i == passIndex)
+                continue;
+            if (i + 1 != split.length && map.get(split[i]) < map.get(split[i + 1])) {
+                Integer a = map.get(split[i]);
+                Integer b = map.get(split[i + 1]);
+                System.out.println(b - a);
+                sum += b - a;
+                passIndex = i + 1;
+            } else {
+                sum += map.get(split[i]);
+            }
         }
         return sum;
     }
