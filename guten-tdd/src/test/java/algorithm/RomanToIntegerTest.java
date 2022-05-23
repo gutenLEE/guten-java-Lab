@@ -37,12 +37,13 @@ public class RomanToIntegerTest {
         for (int i = 0; i < split.length; i++) {
             if (i == passIndex)
                 continue;
-            if (i + 1 != split.length && map.get(split[i]) < map.get(split[i + 1])) {
+            int nextIndex = i + 1;
+            if (nextIndex != split.length && map.get(split[i]) < map.get(split[nextIndex])) {
                 Integer a = map.get(split[i]);
-                Integer b = map.get(split[i + 1]);
+                Integer b = map.get(split[nextIndex]);
                 System.out.println(b - a);
                 sum += b - a;
-                passIndex = i + 1;
+                passIndex = nextIndex;
             } else {
                 sum += map.get(split[i]);
             }
