@@ -33,22 +33,15 @@ public class RomanToIntegerTest {
 
         String[] split = roman.split("");
         int sum = 0;
-        int passIndex = Integer.MIN_VALUE;
-        for (int i = 0; i < split.length; i++) {
-            if (i == passIndex)
-                continue;
+        for (int i = 0; i < split.length - 1; i++) {
             int nextIndex = i + 1;
-            if (nextIndex != split.length && map.get(split[i]) < map.get(split[nextIndex])) {
-                Integer a = map.get(split[i]);
-                Integer b = map.get(split[nextIndex]);
-                System.out.println(b - a);
-                sum += b - a;
-                passIndex = nextIndex;
+            if (map.get(split[i]) < map.get(split[nextIndex])) {
+                sum -= map.get(split[i]);
             } else {
                 sum += map.get(split[i]);
             }
         }
-        return sum;
+        return sum + map.get(split[roman.length() - 1]);
     }
 
     private void assertRomanToInteger(String roman, int expected) {
