@@ -7,15 +7,19 @@ package chap6;
 public class UserRegister {
 
     private WeakPasswordChecker weakPasswordChecker;
+    private UserRepository userRepository;
 
     public UserRegister(WeakPasswordChecker weakPasswordChecker, MemoryUserRepository fakeRepository) {
         this.weakPasswordChecker = weakPasswordChecker;
+        this.userRepository = fakeRepository;
     }
 
     public void register(String id, String pw, String email) throws WeakPasswordException, DupIdException {
         if (weakPasswordChecker.checkPasswordWeak(pw))
             throw new WeakPasswordException();
 
-        throw new DupIdException();
+        User user = userRepository.findById(id);
+        if (user != null)
+            throw new DupIdException();
     }
 }
