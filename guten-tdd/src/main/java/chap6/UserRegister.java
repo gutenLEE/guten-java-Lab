@@ -13,6 +13,7 @@ public class UserRegister {
     }
 
     public void register(String id, String pw, String email) throws WeakPasswordException {
-        throw new WeakPasswordException();
+        if (weakPasswordChecker.checkPasswordWeak(pw))
+            throw new WeakPasswordException();
     }
 }
