@@ -21,5 +21,6 @@ public class UserRegister {
         User user = userRepository.findById(id);
         if (user != null)
             throw new DupIdException();
+
     }
 }
