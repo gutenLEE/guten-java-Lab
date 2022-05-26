@@ -57,6 +57,17 @@ public class UserRegisterTest {
 
     }
 
+    @Test
+    @DisplayName("가입에 성공하면 이메일 발송함")
+    void if_register_success_email_send() throws Exception {
+
+         // 이메일이 발송되었는지 검증? 이메일 주소로 USER의 email 값을 사용했는지 확인 -> 스파이 대역 활용
+
+
+    }
+
+
+
 
 
 
