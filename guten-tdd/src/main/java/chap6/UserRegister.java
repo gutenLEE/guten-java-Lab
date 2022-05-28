@@ -15,12 +15,13 @@ public class UserRegister {
     }
 
     public void register(String id, String pw, String email) throws WeakPasswordException, DupIdException {
+
         if (weakPasswordChecker.checkPasswordWeak(pw))
             throw new WeakPasswordException();
-
         User user = userRepository.findById(id);
-        if (user != null)
+        if (user != null) {
             throw new DupIdException();
+        }
 
         userRepository.save(new User(id, pw, email));
     }
