@@ -116,14 +116,12 @@ public class KakaoCodingTest_KeypadTest {
 
             if (y == 0) {
                 sb.append("L");
-                left[0] = x;
-                left[1] = y;
+                setPosition(left, x, y);
                 continue;
             }
             if (y == 2) {
                 sb.append("R");
-                right[0] = x;
-                right[1] = y;
+                setPosition(right, x, y);
                 continue;
             }
             int leftHandMoveCount = abs(left[0] - x) + abs(left[1] - y);
@@ -132,27 +130,29 @@ public class KakaoCodingTest_KeypadTest {
             if (leftHandMoveCount == rightHandMoveCount) {
                 if ("right".equals(hand)) {
                     sb.append("R");
-                    right[0] = x;
-                    right[1] = y;
+                    setPosition(right, x, y);
                 } else {
                     sb.append("L");
-                    left[0] = x;
-                    left[1] = y;
+                    setPosition(left, x, y);
                 }
             }
             else if (leftHandMoveCount > rightHandMoveCount){
                 sb.append("R");
-                right[0] = x;
-                right[1] = y;
+                setPosition(right, x, y);
             } else {
                 sb.append("L");
-                left[0] = x;
-                left[1] = y;
+                setPosition(left, x, y);
             }
-
         }
         return sb.toString();
     }
+
+    private void setPosition(int[] position, int x, int y){
+        position[0] = x;
+        position[1] = y;
+    }
+
+
 
 
 }
