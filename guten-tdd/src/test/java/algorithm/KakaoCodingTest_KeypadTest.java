@@ -114,12 +114,12 @@ public class KakaoCodingTest_KeypadTest {
                 y = (num-1) % 3;
             }
 
-            if (y == 0) {
+            if (isFirstColumn(y)) {
                 sb.append("L");
                 setPosition(left, x, y);
                 continue;
             }
-            if (y == 2) {
+            if (isThirdColumn(y)) {
                 sb.append("R");
                 setPosition(right, x, y);
                 continue;
@@ -145,6 +145,14 @@ public class KakaoCodingTest_KeypadTest {
             }
         }
         return sb.toString();
+    }
+
+    private boolean isThirdColumn(int y) {
+        return y == 2;
+    }
+
+    private boolean isFirstColumn(int y) {
+        return y == 0;
     }
 
     private void setPosition(int[] position, int x, int y){
