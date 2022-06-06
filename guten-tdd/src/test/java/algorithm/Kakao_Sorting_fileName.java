@@ -16,7 +16,7 @@ public class Kakao_Sorting_fileName {
     // 1. split the file name into head, number, tail
 
     @Test
-    void test() throws Exception {
+    void split_filename_result_should_be_3_length_of_array() throws Exception {
 
         assertSplit("foo9.txt","foo", "9", ".txt");
         assertSplit("foo010bar020.zip","foo", "010", "bar020.zip");
@@ -28,7 +28,6 @@ public class Kakao_Sorting_fileName {
     private void assertSplit(String str, String head, String number, String tail) {
 
         String[] arr = splitFileName(str);
-
         assertThat(arr[0]).isEqualTo(head);
         assertThat(arr[1]).isEqualTo(number);
         assertThat(arr[2]).isEqualTo(tail);
