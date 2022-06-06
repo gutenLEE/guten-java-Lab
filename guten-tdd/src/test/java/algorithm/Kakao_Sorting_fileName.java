@@ -20,18 +20,30 @@ public class Kakao_Sorting_fileName {
 
         assertSplit("foo9.txt","foo", "9", ".txt");
         assertSplit("foo010bar020.zip","foo", "010", "bar020.zip");
+        assertSplit("F-15","F-", "15", "");
+        assertSplit("F-5 Freedom Fighter","F-", "5", " Freedom Fighter");
+        assertSplit("MG01.GIF","MG", "01", ".GIF");
     }
 
     private void assertSplit(String str, String head, String number, String tail) {
-        String[] split = str.split("\\.");
 
+        String[] arr = splitFileName(str);
+
+        assertThat(arr[0]).isEqualTo(head);
+        assertThat(arr[1]).isEqualTo(number);
+        assertThat(arr[2]).isEqualTo(tail);
+
+    }
+
+    private String[] splitFileName(String str) {
         StringBuilder aHead = new StringBuilder("");
         StringBuilder aNum = new StringBuilder("");
         StringBuilder aTail = new StringBuilder("");
 
+        int length = str.split("").length;
         int from = 0;
-        int to = 0;
-        for (int i = 0; i < str.split("").length; i++) {
+        int to = length;
+        for (int i = 0; i < length; i++) {
             char c = str.charAt(i);
             if (Character.isDigit(c)){
                 from = i;
@@ -40,7 +52,7 @@ public class Kakao_Sorting_fileName {
             aHead.append(String.valueOf(c));
         }
 
-        for (int i = from; i < str.split("").length; i++) {
+        for (int i = from; i < length; i++) {
             char c = str.charAt(i);
             if (!Character.isDigit(c)){
                 to = i;
@@ -49,15 +61,13 @@ public class Kakao_Sorting_fileName {
             aNum.append(String.valueOf(c));
         }
 
-        for (int i = to; i < str.split("").length; i++) {
-            char c = str.charAt(i);
-            aTail.append(String.valueOf(c));
+        if (!(to == length)){
+            for (int i = to; i < length; i++) {
+                char c = str.charAt(i);
+                aTail.append(String.valueOf(c));
+            }
         }
-
-        assertThat(aHead.toString()).isEqualTo(head);
-        assertThat(aNum.toString()).isEqualTo(number);
-        assertThat(aTail.toString()).isEqualTo(tail);
-
+        return new String[]{aHead.toString(), aNum.toString(), aTail.toString()};
     }
 
 }
