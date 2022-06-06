@@ -147,6 +147,16 @@ public class KakaoCodingTest_KeypadTest {
         return sb.toString();
     }
 
+    private void setXY(int num, int x, int y) {
+        if (num == 0){
+            x = 3;
+            y = 1;
+        } else {
+            x = (num-1) / 3;
+            y = (num-1) % 3;
+        }
+    }
+
     private boolean isThirdColumn(int y) {
         return y == 2;
     }
