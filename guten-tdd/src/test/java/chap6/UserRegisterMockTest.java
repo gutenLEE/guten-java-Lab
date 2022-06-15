@@ -29,7 +29,9 @@ public class UserRegisterMockTest {
     @DisplayName("약한 암호면 가입 실패")
     void weakPassword() throws Exception {
 
-        BDDMockito.given(mockPasswordChecker.checkPasswordWeak("pw")).willReturn(true);
+        BDDMockito
+                .given(mockPasswordChecker.checkPasswordWeak("pw")) // pw 인자를 사용해서 이 메서드를 호출하면
+                .willReturn(true); // true 를 반환해라
 
         assertThrows(WeakPasswordException.class, () -> {
             userRegister.register("id", "pw", "email");
