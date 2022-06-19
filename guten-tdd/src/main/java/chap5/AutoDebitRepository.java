@@ -13,6 +13,5 @@ public class AutoDebitRepository {
         return new AutoDebitInfo("idasd", "234234", LocalDateTime.now());
     }
 
-    public void save(AutoDebitInfo newInfo) {
-    }
+    public void save(AutoDebitInfo newInfo) {}
 }

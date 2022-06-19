@@ -10,10 +10,10 @@ public class RegisterResult {
     }
 
     public static RegisterResult success() {
-        return null;
+        return new RegisterResult();
     }
 
     public CardValidity getValidity() {
-        return null;
+        return CardValidity.INVALID;
     }
 }
