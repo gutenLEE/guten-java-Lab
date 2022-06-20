@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
  */
 public class PaySync {
 
-    private PayInfoDao payInfoDao = new PayInfoDao();
+    private PayInfoDao payInfoDao = new PayInfoDao(); // 의존 대상을 직접 생성하고 있음
 
     public void sync() throws IOException {
 
