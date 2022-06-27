@@ -9,13 +9,17 @@ import java.time.format.DateTimeFormatter;
  * @author gutenlee
  * @since 2022/06/28
  */
-public class DailBatchLoader {
+public class DailyBatchLoader {
     private String basePath = "";
     private Times times = new Times();
 
 
     public void setTimes(Times times) {
         this.times = times;
+    }
+
+    public void setBasePath(String basePath) {
+        this.basePath = basePath;
     }
 
     public int load(){
