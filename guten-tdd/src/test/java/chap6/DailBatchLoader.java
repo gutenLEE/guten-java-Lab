@@ -11,9 +11,15 @@ import java.time.format.DateTimeFormatter;
  */
 public class DailBatchLoader {
     private String basePath = "";
+    private Times times = new Times();
+
+
+    public void setTimes(Times times) {
+        this.times = times;
+    }
 
     public int load(){
-        LocalDate date = LocalDate.now();
+        LocalDate date = times.today();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         Path basicPath = Paths.get(basePath, date.format(formatter), "batch.txt");
         return 1;
