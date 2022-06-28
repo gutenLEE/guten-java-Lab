@@ -18,6 +18,7 @@ public class CardNumberValidatorTest {
 
     @BeforeEach
     void setUp() {
+        // 테스트 실행 전에 wireMockServer를 시작하면, 실제 http 서버가 뜬다.
         wireMockServer = new WireMockServer(options().port(8089));
         wireMockServer.start();
     }
