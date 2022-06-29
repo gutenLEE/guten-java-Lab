@@ -51,6 +51,12 @@
             <version>2.0.0</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>au.com.dius</groupId>
+            <artifactId>pact-jvm-provider-junit5-spring</artifactId>
+            <version>4.0.10</version>
+            <scope>compile</scope>
+        </dependency>
 
 
     </dependencies>
