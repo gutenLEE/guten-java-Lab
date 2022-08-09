@@ -1,0 +1,12 @@
+db:
+  port: 8888
+  host: localhost
+  host1: localhost2
+  uri: "${db.host},${db.host1}"
+  uri-with-quotes: ${db.host},${db.host1}
+
+spring:
+  data:
+    mongodb:
+      uri: ${db.uri}
+      uri-with-quotes: ${db.uri-with-quotes}
