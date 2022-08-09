@@ -1,6 +1,6 @@
 # guten-java-Lab
 자바 연구소
 
-Commin Message Prefix
+Commit Message Prefix
 1. 🧑‍💻 -> cleared one problem of coding test
-2. 
+2. 🧐 -> cleared the thing that i didn't know of
