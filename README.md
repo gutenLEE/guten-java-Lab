@@ -4,4 +4,4 @@
 Commit Message Prefix
 1. :memo: -> cleared one problem of coding test
 2. :monocle_face: -> cleared the thing that i didn't know of
-3. :technologist: -> 
+3. :technologist: -> learned a core knowledge of programming
