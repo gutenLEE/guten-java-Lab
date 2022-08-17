@@ -23,6 +23,9 @@ public class LawOfLargeNumbers {
         // 예외
         assertThat(add(new Integer[]{2, 4, 5, 3, 6}, 0, 3)).isEqualTo(0);
 
+        // totalCount -= (limitCount+1), totalCount != 0 예외 발생
+        assertThat(add(new Integer[]{2, 4, 5, 3, 6}, 8, 2)).isEqualTo(46);
+
     }
 
     private int add(Integer[] array, int totalCount, int limitCount){
@@ -32,10 +35,17 @@ public class LawOfLargeNumbers {
         int firstMax = array[0];
         int secondMax = array[1];
 
-        while (totalCount != 0) {
-            sum += (firstMax*limitCount + secondMax);
-            totalCount -= (limitCount+1);
+        while (totalCount > 0) {
+            if (totalCount < limitCount+1) {
+                sum += firstMax*limitCount;
+                totalCount -= (limitCount);
+            } else {
+                sum += (firstMax*limitCount + secondMax);
+                totalCount -= (limitCount+1);
+            }
+
         }
+
 
         return sum;
     }
