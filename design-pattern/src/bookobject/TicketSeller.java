@@ -13,6 +13,7 @@ public class TicketSeller {
     }
 
     public void sellTo(Audience audience) {
+        // ticketSeller 가 tickerOffice의 직접적으로 접근하고있음.
         this.ticketOffice.plusAmount(audience.buy(ticketOffice.getTicket()));
     }
 }
