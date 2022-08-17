@@ -33,8 +33,7 @@ public class LawOfLargeNumbers {
         int secondMax = array[1];
 
         while (totalCount != 0) {
-            sum += (firstMax*limitCount);
-            sum += (secondMax);
+            sum += (firstMax*limitCount + secondMax);
             totalCount -= (limitCount+1);
         }
 
