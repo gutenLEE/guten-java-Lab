@@ -16,6 +16,7 @@ public class Audience {
     }
 
     public Long buy(Ticket ticket){
+        // Bagd의 로직을 알 필요가 없음
         if (this.bag.hasInvitation()) {
             this.bag.setTicket(ticket);
             return 0L;
