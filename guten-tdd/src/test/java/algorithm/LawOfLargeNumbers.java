@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.Collections;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.from;
 
 /**
  * 큰수의 법칙
@@ -35,18 +36,13 @@ public class LawOfLargeNumbers {
         int firstMax = array[0];
         int secondMax = array[1];
 
-        while (totalCount > 0) {
-            if (totalCount < limitCount+1) {
-                sum += firstMax*limitCount;
-                totalCount -= (limitCount);
-            } else {
-                sum += (firstMax*limitCount + secondMax);
-                totalCount -= (limitCount+1);
-            }
 
-        }
+        int firstMaxCount = totalCount / (limitCount+1) * limitCount;
+        firstMaxCount += (totalCount % (limitCount+1));
 
+        int secondMaxCount = totalCount - firstMaxCount;
 
+        sum = (firstMax * firstMaxCount) + (secondMax * secondMaxCount);
         return sum;
     }
 
