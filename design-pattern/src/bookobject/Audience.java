@@ -16,14 +16,6 @@ public class Audience {
     }
 
     public Long buy(Ticket ticket){
-        // Bagd의 로직을 알 필요가 없음
-        if (this.bag.hasInvitation()) {
-            this.bag.setTicket(ticket);
-            return 0L;
-        } else {
-            this.bag.minusAmount(ticket.getFee());
-            this.bag.setTicket(ticket);
-            return ticket.getFee();
-        }
+        return bag.hold(ticket);
     }
 }
