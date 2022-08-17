@@ -34,9 +34,8 @@ public class LawOfLargeNumbers {
 
         while (totalCount != 0) {
             sum += (firstMax*limitCount);
-            totalCount -= limitCount;
             sum += (secondMax);
-            totalCount -= 1;
+            totalCount -= (limitCount+1);
         }
 
         return sum;
