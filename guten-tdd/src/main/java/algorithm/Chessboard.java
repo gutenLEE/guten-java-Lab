@@ -55,9 +55,6 @@ public class Chessboard {
         return x < 7;
     }
 
-    public int getNumberOfCases() {
-        return 0;
-    }
 
     public int getX() {
         return x;

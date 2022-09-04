@@ -82,5 +82,8 @@ public class KnightOfKingdomTest {
 
         chessboard = new Chessboard("d6");
         assertThat(chessboard.getMovableCount()).isEqualTo(8);
+
+        chessboard = new Chessboard("c2");
+        assertThat(chessboard.getMovableCount()).isEqualTo(6);
     }
 }
