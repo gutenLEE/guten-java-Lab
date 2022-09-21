@@ -11,7 +11,10 @@ public class FibonacciSequencePrinterTest {
     // input - 총 항의 수
     @Test
     void test() throws Exception {
-        System.out.println(dfs(7));
+        int n =7;
+        for (int i = 1; i <= n; i++) {
+            System.out.print(dfs(i) + " ");
+        }
     }
 
     private int dfs(int n){
