@@ -9,19 +9,22 @@ import org.junit.jupiter.api.Test;
 public class FibonacciSequencePrinterTest {
     // 피보나치 수열 출력하라
     // input - 총 항의 수
+    static int[] fibo;
     @Test
     void test() throws Exception {
         int n =7;
+        fibo = new int[n+1];
+        dfs(n);
         for (int i = 1; i <= n; i++) {
-            System.out.print(dfs(i) + " ");
+            System.out.print(fibo[i] + " ");
         }
     }
 
     private int dfs(int n){
-       if (n==1)return 1;
-       if (n==2)return 1;
+       if (n==1)return fibo[n]=1;
+       if (n==2)return fibo[n]=1;
 
-       return dfs(n-2)+dfs(n-1);
+       return fibo[n]=dfs(n-2)+dfs(n-1);
     }
 
 
