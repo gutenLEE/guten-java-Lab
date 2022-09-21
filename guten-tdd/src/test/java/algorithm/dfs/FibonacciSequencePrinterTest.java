@@ -12,7 +12,7 @@ public class FibonacciSequencePrinterTest {
     static int[] fibo;
     @Test
     void test() throws Exception {
-        int n =7;
+        int n = 45;
         fibo = new int[n+1];
         dfs(n);
         for (int i = 1; i <= n; i++) {
@@ -21,6 +21,7 @@ public class FibonacciSequencePrinterTest {
     }
 
     private int dfs(int n){
+        if (fibo[n]>0) return fibo[n];
        if (n==1)return fibo[n]=1;
        if (n==2)return fibo[n]=1;
 
