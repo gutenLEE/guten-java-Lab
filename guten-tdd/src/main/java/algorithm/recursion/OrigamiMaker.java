@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.recursion;
 
 /**
  * https://www.acmicpc.net/problem/2630

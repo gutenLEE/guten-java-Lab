@@ -10,7 +10,7 @@ public class DepthFirstSearchTest01 {
 
     @Test
     void test() throws Exception {
-        Node root = new Node(1);
+        Node root = new Node(9);
         root.lt = new Node(2);
         root.rt = new Node(3);
         root.lt.lt = new Node(4);
@@ -23,9 +23,10 @@ public class DepthFirstSearchTest01 {
     public void dfs(Node root){
         if (root == null) return;
         else {
-            System.out.print(root.data + " ");
             dfs(root.lt);
+            System.out.print(root.data + " ");
             dfs(root.rt);
+
         }
     }
 
