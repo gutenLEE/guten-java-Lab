@@ -23,6 +23,6 @@ public class StaticFactoryMethod {
                     System.identityHashCode(boolByStaticFactoryMethod)
             );
         }
-
     }
+
 }
