@@ -14,11 +14,15 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive:2.6.7'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'io.projectreactor:reactor-test'
 
     // https://mvnrepository.com/artifact/org.testcontainers/postgresql
     testImplementation group: 'org.testcontainers', name: 'postgresql', version: '1.17.3'
+// https://mvnrepository.com/artifact/org.testcontainers/mongodb
+    testImplementation group: 'org.testcontainers', name: 'mongodb', version: '1.16.2'
+
 
 }
 
