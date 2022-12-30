@@ -11,7 +11,7 @@ public class OuterClass {
     String outerField = "Outer field";
     static String staticOuterField = "Static outer field";
 
-    class InnerClass {
+    private class InnerClass {
         void accessMembers() {
             System.out.println(outerField);
             System.out.println(staticOuterField);
