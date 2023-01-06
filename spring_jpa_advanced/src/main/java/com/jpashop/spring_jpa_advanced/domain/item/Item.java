@@ -1,3 +1,4 @@
+/*
 package com.jpashop.spring_jpa_advanced.domain.item;
 
 
@@ -9,10 +10,12 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+*/
 /**
  * @author gutenlee
  * @since 2022/09/18
- */
+ *//*
+
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "dtype")
@@ -28,4 +31,4 @@ public abstract class Item {
     private int stockQuantity;
     @ManyToMany(mappedBy = "items")
     private List<Category> categories = new ArrayList<Category>();
-}
+}*/
