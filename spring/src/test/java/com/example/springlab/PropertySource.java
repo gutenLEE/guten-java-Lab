@@ -12,14 +12,4 @@ import org.springframework.stereotype.Component;
 @Data
 public class PropertySource {
 
-    @Value("${db.host}")
-    private String host;
-    @Value("${db.port}")
-    private int port;
-
-    @Value("${spring.data.mongodb.uri}")
-    private String uri;
-
-    @Value("${spring.data.mongodb.uri-with-quotes}")
-    private String uriWithQuotes;
 }

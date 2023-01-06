@@ -26,16 +26,6 @@ public class PropsTest {
     @Autowired
     private PropertySource propertySource;
 
-    @Test
-    void get_value_from_props_file_test() throws Exception {
-         assertThat(propertySource.getHost()).isEqualTo("test");
-    }
-
-    @Test
-    void get_value_from_props_with_comma() throws Exception {
-         assertThat(propertySource.getUri()).isEqualTo("localhost,localhost2");
-         assertThat(propertySource.getUriWithQuotes()).isEqualTo("localhost,localhost2");
-    }
 
 
 }

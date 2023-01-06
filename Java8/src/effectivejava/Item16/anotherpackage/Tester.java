@@ -10,6 +10,6 @@ import effectivejava.Item16.dimension.Point;
 public class Tester {
     public static void main(String[] args) {
         Point point = new Point(1, 2);
-        point.new InnerClass();
+//        point.new InnerClass();
     }
 }
