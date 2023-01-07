@@ -1,3 +1,4 @@
+/*
 package com.jpashop.spring_jpa_advanced.domain;
 
 import com.jpashop.spring_jpa_advanced.domain.item.Item;
@@ -8,10 +9,12 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+*/
 /**
  * @author gutenlee
  * @since 2022/09/18
- */
+ *//*
+
 @Entity
 @Getter
 @Setter
@@ -40,4 +43,4 @@ public class Category {
     public void addChildCategory(Category child) {
 
     }
-}
+}*/

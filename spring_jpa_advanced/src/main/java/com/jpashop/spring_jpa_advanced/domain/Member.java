@@ -1,3 +1,4 @@
+/*
 package com.jpashop.spring_jpa_advanced.domain;
 
 
@@ -5,10 +6,12 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+*/
 /**
  * @author gutenlee
  * @since 2022/09/18
- */
+ *//*
+
 
 @Entity
 public class Member {
@@ -22,3 +25,4 @@ public class Member {
     @OneToMany(mappedBy = "member")
     private final List<Order> orders = new ArrayList<>();
 }
+*/

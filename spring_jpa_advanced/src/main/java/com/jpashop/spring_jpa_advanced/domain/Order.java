@@ -1,3 +1,4 @@
+/*
 package com.jpashop.spring_jpa_advanced.domain;
 
 import lombok.Getter;
@@ -7,10 +8,12 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+*/
 /**
  * @author gutenlee
  * @since 2022/09/18
- */
+ *//*
+
 @Entity
 @Table(name = "orders")
 @Getter @Setter
@@ -34,3 +37,4 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
 }
+*/

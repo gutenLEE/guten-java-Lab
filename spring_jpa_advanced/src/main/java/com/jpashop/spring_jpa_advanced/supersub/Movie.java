@@ -1,4 +1,4 @@
-package com.jpashop.spring_jpa_advanced.supersub.joinedstrategy.domain;
+package com.jpashop.spring_jpa_advanced.supersub;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;

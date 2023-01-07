@@ -1,4 +1,4 @@
-package com.jpashop.spring_jpa_advanced.supersub.joinedstrategy.domain;
+package com.jpashop.spring_jpa_advanced.supersub;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -24,5 +24,12 @@ public class Album extends Item {
     public Album(String artist, String name, int price) {
         super(name, price);
         this.artist = artist;
+    }
+
+    @Override
+    public String toString() {
+        return "Album{" +
+                "artist='" + artist + '\'' +
+                '}';
     }
 }

@@ -1,3 +1,4 @@
+/*
 package com.jpashop.spring_jpa_advanced.domain;
 
 import com.jpashop.spring_jpa_advanced.domain.item.Item;
@@ -6,10 +7,12 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+*/
 /**
  * @author gutenlee
  * @since 2022/09/18
- */
+ *//*
+
 @Entity
 @Table(name = "order_item")
 @Getter
@@ -27,4 +30,4 @@ public class OrderItem {
     private Order order; //주문
     private int orderPrice; //주문 가격
     private int count; //주문 수량
-}
+}*/
