@@ -251,7 +251,7 @@ string name
 ```
 
 ### 식별 관계와 비식별 관계 매핑 방법
-1. 복합 키를 사용하는 비식별 관계 매핑  
+1. 복합 키를 사용하는 **비식별 관계** 매핑  
 JPA는 영속성 컨텍스트에 엔티티를 보관할 때 엔티티의 식별자를 키로 사용하는데, 식별자 구분에 equals&hashCode 를 사용해 동등성을 비교한다.  
 식별자 필드가 하나일 때는 자바의 기본 타입을 사용하므로 문제가 없으나, 식별자 필드가 2개 이상이면 식별자 클래스에 equals&hashCode 를 구현해야 한다.  
 
@@ -318,16 +318,16 @@ public class ParentId implements Serializable {
 ```
 
 @IdClass 식별자 클래스의 필수 조건
-1. 식별자 클래스의 속성명과 엔티티에서 사용하는 식별자의 속성명이 같아야 한다. 
-2. Serializable 인터페이스를 구현해야 한다.
-3. equals, hashCode를 구현해야 한다.
-4. 기본 생성자가 있어야 한다.
-5. 식별자 클래스는 public 이어야 한다.
+- 식별자 클래스의 속성명과 엔티티에서 사용하는 식별자의 속성명이 같아야 한다. 
+- Serializable 인터페이스를 구현해야 한다. 
+- equals, hashCode를 구현해야 한다. 
+- 기본 생성자가 있어야 한다. 
+- 식별자 클래스는 public 이어야 한다.
 
-!! 복합 키에는 @GenerateValue를 사용할 수 없다. 복합 키를 구성하는 여러 컬럼 중 하나에도 사용할 수 없다  
+```!! 복합 키에는 @GenerateValue를 사용할 수 없다. 복합 키를 구성하는 여러 컬럼 중 하나에도 사용할 수 없다  ```
 #
 
-2. 복합 키를 사용하는 식별 관계 매핑
+2. 복합 키를 사용하는 **식별 관계** 매핑
 
 ```mermaid
 erDiagram
@@ -455,3 +455,20 @@ erDiagram
     }
 ```
 복합 키가 없으므로 복합 키 클래스를 만들지 않아도 된다.
+
+4. 일대일 식별 관계
+```mermaid
+erDiagram
+    BOARD ||--o{ BOARD_DETAIL :i
+    BOARD {
+        Long BOARD_ID_PK
+        string title
+    }
+    BOARD_DETAIL {
+        Long BOARD_ID_PK_FK
+        string content
+    }
+```
+일대일 식별 관계는 자식 테이블의 기본 키 값으로 부모 테이블의 기본 키 값만 사용한다.  
+그래서 부모 테이블의 기본 키가 복합 키가 아니면 자식 테이블의 기본 키는 복합 키로 구성하지 않아도 된다.  
+

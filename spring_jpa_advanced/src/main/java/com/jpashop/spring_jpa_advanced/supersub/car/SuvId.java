@@ -1,4 +1,4 @@
-package com.jpashop.spring_jpa_advanced.supersub;
+package com.jpashop.spring_jpa_advanced.supersub.car;
 
 import java.io.Serializable;
 import java.util.Objects;

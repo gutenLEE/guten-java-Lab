@@ -1,5 +1,8 @@
 package com.jpashop.spring_jpa_advanced.supersub;
 
+import com.jpashop.spring_jpa_advanced.supersub.car.Car;
+import com.jpashop.spring_jpa_advanced.supersub.car.GenesisGV80;
+import com.jpashop.spring_jpa_advanced.supersub.car.Suv;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;

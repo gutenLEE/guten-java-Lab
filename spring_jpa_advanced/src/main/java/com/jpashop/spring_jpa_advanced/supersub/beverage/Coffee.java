@@ -1,4 +1,7 @@
-package com.jpashop.spring_jpa_advanced.supersub;
+package com.jpashop.spring_jpa_advanced.supersub.beverage;
+
+import com.jpashop.spring_jpa_advanced.supersub.beverage.Beverage;
+import com.jpashop.spring_jpa_advanced.supersub.beverage.CoffeeId;
 
 import javax.persistence.*;
 
