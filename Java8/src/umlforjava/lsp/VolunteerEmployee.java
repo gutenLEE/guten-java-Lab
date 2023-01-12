@@ -14,7 +14,8 @@ public class VolunteerEmployee extends Employee {
         throw new UnpayableEmployeeException(); // 예외를 던지도록 변경한다면
     }
 
-    public static void main(String[] args) {
+
+    private static double violateLSP_case( ) {
 
         double totalPay = 0;
 
@@ -28,8 +29,32 @@ public class VolunteerEmployee extends Employee {
             } catch (UnpayableEmployeeException e) {
                 e.printStackTrace();
             }
-
         }
+
+        return totalPay;
     }
+
+    public static void main(String[] args) {
+
+    }
+
+    private static double violateLSP_case2( ) throws UnpayableEmployeeException {
+
+        double totalPay = 0;
+
+        List<Employee> employees = List.of(new SalariedEmployee(), new HourlyEmployee(), new VolunteerEmployee());
+        for (int i = 0; i < employees.size(); i++) {
+
+            Employee employee = employees.get(i);
+            // LSP 위반 :  이 경우는 Employee 라는 기반 클래스로 작업하던 코드에서 이제는 이 기반 클래스에서 유도된 클래스까지 명시해야 한다.
+            // Employee 사용자는 VolunteerEmployee 가 있다는 사실만으로도 영향을 받는다.
+            // instanceof 구문은 OCP 도 어긴다
+            if (!(employee instanceof VolunteerEmployee))
+                totalPay += employee.calcPay();
+        }
+
+        return totalPay;
+    }
+
 
 }
