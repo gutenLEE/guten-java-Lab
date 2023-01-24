@@ -41,11 +41,11 @@ public class OuterClass {
         System.out.println("--------------------");
         StaticNestedClass staticNestedObject = new StaticNestedClass();
         staticNestedObject.accessMembers(outerObject);
-
-
-        System.out.println("\nTop-level class:");
-        System.out.println("--------------------");
-        TopLevelClass topLevelObject = new TopLevelClass();
-        topLevelObject.accessMembers(outerObject);
+//
+//
+//        System.out.println("\nTop-level class:");
+//        System.out.println("--------------------");
+//        TopLevelClass topLevelObject = new TopLevelClass();
+//        topLevelObject.accessMembers(outerObject);
     }
 }
