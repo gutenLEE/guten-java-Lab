@@ -5,7 +5,7 @@ package effectivejava.item20;
  * @since 2023/01/24
  */
 public abstract class Printer {
-
+    
     public void print(){
         System.out.println("AbstractA.print");
     }
